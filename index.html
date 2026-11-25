@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101321">
+  <meta name="description" content="A little birthday universe made especially for Affu.">
+  <title>For Affu ✦ A Birthday Surprise</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <div class="stars" aria-hidden="true"></div>
+
+  <section class="secret-gate" id="secretGate" aria-label="Secret birthday entry">
+    <div class="gate-card">
+      <div class="gate-icon">✧</div>
+      <p class="section-kicker">A LITTLE SECRET</p>
+      <h1>Only for <em>Affu.</em></h1>
+      <p class="gate-copy">A tiny surprise is waiting behind this door.<br>Enter the secret word to begin.</p>
+      <form id="unlockForm" class="unlock-form">
+        <label class="sr-only" for="secretInput">Secret word</label>
+        <input id="secretInput" type="password" placeholder="Enter secret word" autocomplete="off" required>
+        <button class="primary-button" type="submit">Unlock surprise <span>↗</span></button>
+      </form>
+      <p class="gate-hint" id="gateHint">Hint: her special name</p>
+    </div>
+  </section>
+  <main class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="For Affu home"><span class="brand-mark">✦</span> A LITTLE UNIVERSE</a>
+      <div class="top-actions"><button class="sound-toggle" id="soundToggle" type="button" aria-pressed="false">♫ SOUND OFF</button><span class="top-date">29 NOVEMBER 2026</span></div>
+    </header>
+
+    <section class="hero panel" id="welcome">
+      <div class="eyebrow"><span class="eyebrow-line"></span> MADE WITH A LITTLE EXTRA LOVE <span class="eyebrow-line"></span></div>
+      <div class="hero-sparkle sparkle-a">✧</div><div class="hero-sparkle sparkle-b">✦</div>
+      <p class="pretitle">A special day is written in the stars for</p>
+      <h1>Affu<span class="name-dot">.</span></h1>
+      <p class="hero-copy">Some people make ordinary days feel golden.<br>Today, this little corner of the universe is all yours.</p>
+      <button class="primary-button" id="beginBtn">Open your surprise <span>↗</span></button>
+      <p class="tiny-note">A tiny journey, made just for you</p>
+      <div class="scroll-cue"><span></span> SCROLL TO EXPLORE</div>
+    </section>
+
+    <section class="countdown-section section-space" id="countdown">
+      <div class="section-kicker">THE WAIT IS ALMOST OVER</div>
+      <h2>Until your day <em>shines.</em></h2>
+      <p class="section-copy" id="countdownMessage">Every second brings us closer to your celebration.</p>
+      <div class="countdown-grid" aria-label="Countdown to birthday">
+        <div class="time-card"><strong id="days">00</strong><span>DAYS</span></div>
+        <div class="time-card"><strong id="hours">00</strong><span>HOURS</span></div>
+        <div class="time-card"><strong id="minutes">00</strong><span>MINUTES</span></div>
+        <div class="time-card"><strong id="seconds">00</strong><span>SECONDS</span></div>
+      </div>
+      <div class="date-pill"><span>✧</span> SUNDAY, 29 NOVEMBER 2026 <span>✧</span></div>
+    </section>
+
+
+    <section class="window-section section-space" id="windowMoment">
+      <div class="section-kicker">A VIEW MADE OF WISHES</div>
+      <h2>Open the window<br><em>to a little magic.</em></h2>
+      <p class="section-copy">Somewhere between the stars and the night sky, a wish is waiting for you.</p>
+      <div class="window-scene">
+        <div class="moon"></div>
+        <div class="window-frame">
+          <div class="night-view"><span class="window-star star-one">✦</span><span class="window-star star-two">✧</span><span class="window-star star-three">·</span><div class="distant-hills"></div></div>
+          <button class="shutter shutter-left" id="shutterLeft" aria-label="Open left window shutter"></button>
+          <button class="shutter shutter-right" id="shutterRight" aria-label="Open right window shutter"></button>
+          <div class="window-sill"></div>
+        </div>
+        <p class="window-hint" id="windowHint">Tap the window to let the stars in</p>
+        <button class="outline-button" id="openWindowBtn">Open the window</button>
+      </div>
+    </section>
+
+    <section class="celebration-section section-space" id="celebration">
+      <div class="section-kicker">YOUR MOMENT</div>
+      <h2>A wish, a candle,<br><em>and a little magic.</em></h2>
+      <div class="cake-card">
+        <div class="cake-glow"></div>
+        <div class="cake" id="cake" aria-label="Birthday cake illustration">
+          <div class="flames" id="flames"><i></i><i></i><i></i></div>
+          <div class="candles"><b></b><b></b><b></b></div>
+          <div class="cake-top"></div><div class="cake-middle"></div><div class="cake-bottom"></div>
+          <div class="cake-plate"></div>
+        </div>
+        <p class="cake-caption" id="cakeCaption">Make a wish, Affu ✨</p>
+        <button class="outline-button" id="blowBtn">Blow out the candles</button>
+      </div>
+      <button class="text-button" id="confettiBtn">A little more celebration <span>✦</span></button>
+    </section>
+
+    <section class="letter-section section-space" id="letter">
+      <div class="section-kicker">A NOTE FOR YOU</div>
+      <h2>Words from the <em>heart.</em></h2>
+      <p class="section-copy">A little something to keep, whenever you need a reminder that you matter.</p>
+      <div class="envelope-wrap">
+        <button class="envelope" id="envelopeBtn" aria-expanded="false" aria-label="Open your birthday letter">
+          <span class="envelope-back"></span><span class="letter-paper"><span class="letter-mini-title">For Affu,</span><span class="letter-mini-line"></span><span class="letter-mini-line short"></span><span class="letter-mini-heart">♡</span></span><span class="envelope-front"></span><span class="envelope-flap"></span>
+        </button>
+        <p class="envelope-hint" id="envelopeHint">Tap the envelope to open your letter</p>
+      </div>
+      <article class="letter-content" id="letterContent" hidden>
+        <div class="letter-inner">
+          <div class="letter-topline">A LITTLE NOTE · 29.11.2026</div>
+          <h3>Dear Affu,</h3>
+          <p>Happy Birthday! I hope this new chapter brings you calm mornings, unexpected laughter, beautiful memories, and countless reasons to feel proud of yourself.</p>
+          <p>May you keep discovering the things that make your heart feel alive. May the people around you celebrate your kindness, your courage, and all the little things that make you wonderfully you.</p>
+          <p>Today is your reminder to pause, make a wish, and enjoy every bit of the happiness you deserve. Here's to a year filled with bright beginnings and moments worth remembering.</p>
+          <p class="letter-signoff">With warmest wishes, <span>♡</span></p>
+        </div>
+      </article>
+    </section>
+
+    <section class="final-section section-space">
+      <div class="final-star">✦</div>
+      <p class="section-kicker">ONE LAST THING</p>
+      <h2>Keep glowing,<br><em>Affu.</em></h2>
+      <p class="final-copy">The world is a little brighter with you in it.<br>Have the happiest birthday.</p>
+      <button class="primary-button" id="againBtn">Celebrate again <span>↗</span></button>
+      <div class="final-heart">♡</div>
+    </section>
+
+
+    <section class="qr-section section-space" id="shareSurprise">
+      <div class="section-kicker">PASS THE MAGIC ALONG</div>
+      <h2>A little surprise<br><em>worth sharing.</em></h2>
+      <p class="section-copy">Once your website is published, scan this code from another device to open Affu's birthday surprise.</p>
+      <div class="qr-card">
+        <div class="qr-frame"><div id="birthdayQr" aria-label="QR code for this birthday website"></div><div class="qr-placeholder" id="qrPlaceholder"><span>✦</span><small>QR CODE</small></div></div>
+        <p class="qr-status" id="qrStatus">Your shareable QR code will appear when this site is published online.</p>
+        <button class="outline-button" id="copyLinkBtn" type="button">Copy website link</button>
+      </div>
+    </section>
+
+    <footer><span>CRAFTED FOR AFFU</span><span>WITH LOVE & A LITTLE STARDUST ✦</span></footer>
+  </main>
+  <div class="cinematic-wash" id="cinematicWash"><div class="wash-star">✦</div><p>THE MOMENT IS YOURS</p></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
