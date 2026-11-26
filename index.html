@@ -15,18 +15,21 @@
   <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
   <div class="stars" aria-hidden="true"></div>
 
-  <section class="secret-gate" id="secretGate" aria-label="Secret birthday entry">
+  <section class="secret-gate" id="secretGate" aria-label="Birthday countdown and secret entry">
     <div class="gate-card">
       <div class="gate-icon">✧</div>
-      <p class="section-kicker">A LITTLE SECRET</p>
-      <h1>Only for <em>Affu.</em></h1>
-      <p class="gate-copy">A tiny surprise is waiting behind this door.<br>Enter the secret word to begin.</p>
-      <form id="unlockForm" class="unlock-form">
+      <p class="section-kicker" id="gateKicker">A LITTLE SECRET</p>
+      <h1 id="gateTitle">A surprise for <em>Affu.</em></h1>
+      <p class="gate-copy" id="gateCopy">This little universe is sealed until your special day.<br>Come back when the clock reaches midnight.</p>
+      <div class="gate-countdown" id="gateCountdown" aria-live="polite">
+        <div><strong id="gateDays">00</strong><span>DAYS</span></div><div><strong id="gateHours">00</strong><span>HOURS</span></div><div><strong id="gateMinutes">00</strong><span>MINUTES</span></div><div><strong id="gateSeconds">00</strong><span>SECONDS</span></div>
+      </div>
+      <form id="unlockForm" class="unlock-form" hidden>
         <label class="sr-only" for="secretInput">Secret word</label>
         <input id="secretInput" type="password" placeholder="Enter secret word" autocomplete="off" required>
         <button class="primary-button" type="submit">Unlock surprise <span>↗</span></button>
       </form>
-      <p class="gate-hint" id="gateHint">Hint: her special name</p>
+      <p class="gate-hint" id="gateHint">The door opens on 29 November 2026 · 12:00 AM IST</p>
     </div>
   </section>
   <main class="site-shell">
@@ -35,7 +38,7 @@
       <div class="top-actions"><button class="sound-toggle" id="soundToggle" type="button" aria-pressed="false">♫ SOUND OFF</button><span class="top-date">29 NOVEMBER 2026</span></div>
     </header>
 
-    <section class="hero panel" id="welcome">
+    <section class="hero panel journey-stage" id="welcome">
       <div class="eyebrow"><span class="eyebrow-line"></span> MADE WITH A LITTLE EXTRA LOVE <span class="eyebrow-line"></span></div>
       <div class="hero-sparkle sparkle-a">✧</div><div class="hero-sparkle sparkle-b">✦</div>
       <p class="pretitle">A special day is written in the stars for</p>
@@ -44,9 +47,10 @@
       <button class="primary-button" id="beginBtn">Open your surprise <span>↗</span></button>
       <p class="tiny-note">A tiny journey, made just for you</p>
       <div class="scroll-cue"><span></span> SCROLL TO EXPLORE</div>
+          <button class="journey-next primary-button" data-next="welcome">Begin the journey <span>↗</span></button>
     </section>
 
-    <section class="countdown-section section-space" id="countdown">
+    <section class="countdown-section section-space journey-stage" id="countdown">
       <div class="section-kicker">THE WAIT IS ALMOST OVER</div>
       <h2>Until your day <em>shines.</em></h2>
       <p class="section-copy" id="countdownMessage">Every second brings us closer to your celebration.</p>
@@ -57,10 +61,11 @@
         <div class="time-card"><strong id="seconds">00</strong><span>SECONDS</span></div>
       </div>
       <div class="date-pill"><span>✧</span> SUNDAY, 29 NOVEMBER 2026 <span>✧</span></div>
+          <button class="journey-next primary-button" data-next="countdown">Continue <span>↗</span></button>
     </section>
 
 
-    <section class="window-section section-space" id="windowMoment">
+    <section class="window-section section-space journey-stage" id="windowMoment">
       <div class="section-kicker">A VIEW MADE OF WISHES</div>
       <h2>Open the window<br><em>to a little magic.</em></h2>
       <p class="section-copy">Somewhere between the stars and the night sky, a wish is waiting for you.</p>
@@ -75,9 +80,10 @@
         <p class="window-hint" id="windowHint">Tap the window to let the stars in</p>
         <button class="outline-button" id="openWindowBtn">Open the window</button>
       </div>
+          <button class="journey-next primary-button" data-next="windowMoment">See your birthday cake <span>↗</span></button>
     </section>
 
-    <section class="celebration-section section-space" id="celebration">
+    <section class="celebration-section section-space journey-stage" id="celebration">
       <div class="section-kicker">YOUR MOMENT</div>
       <h2>A wish, a candle,<br><em>and a little magic.</em></h2>
       <div class="cake-card">
@@ -92,9 +98,21 @@
         <button class="outline-button" id="blowBtn">Blow out the candles</button>
       </div>
       <button class="text-button" id="confettiBtn">A little more celebration <span>✦</span></button>
+          <button class="journey-next primary-button" data-next="celebration">Open your surprise gift <span>↗</span></button>
     </section>
 
-    <section class="letter-section section-space" id="letter">
+    <section class="gift-section section-space journey-stage" id="giftReveal">
+      <div class="section-kicker">A LITTLE SOMETHING FOR YOU</div>
+      <h2>Unwrap a little<br><em>happiness.</em></h2>
+      <p class="section-copy">Every special day deserves a surprise. Tap the box when you're ready.</p>
+      <button class="gift-box" id="giftBox" type="button" aria-expanded="false" aria-label="Open the birthday gift">
+        <span class="gift-lid"></span><span class="gift-ribbon-v"></span><span class="gift-ribbon-h"></span><span class="gift-bow">♡</span>
+      </button>
+      <p class="gift-message" id="giftMessage" hidden>May this year bring you countless reasons to smile, new adventures, and memories that stay golden. Happy Birthday, Affu! ✨</p>
+      <button class="journey-next primary-button" data-next="giftReveal">Read your birthday letter <span>↗</span></button>
+    </section>
+
+    <section class="letter-section section-space journey-stage" id="letter">
       <div class="section-kicker">A NOTE FOR YOU</div>
       <h2>Words from the <em>heart.</em></h2>
       <p class="section-copy">A little something to keep, whenever you need a reminder that you matter.</p>
@@ -114,19 +132,21 @@
           <p class="letter-signoff">With warmest wishes, <span>♡</span></p>
         </div>
       </article>
+          <button class="journey-next primary-button" data-next="letter">One last surprise <span>↗</span></button>
     </section>
 
-    <section class="final-section section-space">
+    <section class="final-section section-space journey-stage" id="finalStep">
       <div class="final-star">✦</div>
       <p class="section-kicker">ONE LAST THING</p>
       <h2>Keep glowing,<br><em>Affu.</em></h2>
       <p class="final-copy">The world is a little brighter with you in it.<br>Have the happiest birthday.</p>
       <button class="primary-button" id="againBtn">Celebrate again <span>↗</span></button>
       <div class="final-heart">♡</div>
+          <button class="journey-next primary-button" data-next="finalStep">See the final surprise <span>↗</span></button>
     </section>
 
 
-    <section class="qr-section section-space" id="shareSurprise">
+    <section class="qr-section section-space journey-stage" id="shareSurprise">
       <div class="section-kicker">PASS THE MAGIC ALONG</div>
       <h2>A little surprise<br><em>worth sharing.</em></h2>
       <p class="section-copy">Once your website is published, scan this code from another device to open Affu's birthday surprise.</p>

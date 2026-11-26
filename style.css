@@ -13,3 +13,27 @@
 .cinematic-wash{position:fixed;inset:0;z-index:60;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#101321;opacity:0;visibility:hidden;pointer-events:none}.cinematic-wash.play{visibility:visible;animation:cinematicReveal 2.3s ease forwards}.wash-star{font-size:55px;color:var(--gold);text-shadow:0 0 35px #e7c28b;animation:starPulse 1s ease-in-out infinite alternate}.cinematic-wash p{font-size:10px;letter-spacing:.35em;color:#e8d5cb;margin-top:22px}@keyframes cinematicReveal{0%{opacity:0}18%{opacity:1}72%{opacity:1}100%{opacity:0;visibility:hidden}}@keyframes starPulse{to{transform:scale(1.25) rotate(35deg);text-shadow:0 0 55px #e7c28b}}
 .qr-card{width:min(100%,360px);margin:38px auto 0;padding:30px 24px;background:linear-gradient(145deg,#1b2031,#141827);border:1px solid var(--line);border-radius:5px}.qr-frame{position:relative;width:190px;height:190px;margin:auto;padding:10px;background:#fff;border:1px solid #d9b985;display:grid;place-items:center}.qr-frame canvas,.qr-frame img{max-width:170px;max-height:170px}.qr-placeholder{position:absolute;inset:10px;background:#f6eee8;color:#9b7a7d;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}.qr-placeholder span{font-size:34px}.qr-placeholder small{font-size:9px;letter-spacing:.25em}.qr-status{font-size:11px;line-height:1.7;color:#aaa2ac;margin:22px 0 14px}.qr-card .outline-button{margin-top:0}.qr-card .outline-button:disabled{opacity:.45;cursor:not-allowed}
 @media(max-width:600px){.qr-card{padding:25px 15px}.qr-frame{width:180px;height:180px}}
+
+
+/* Version 4 — date lock and guided birthday journey */
+body.is-locked .site-shell{display:none}
+.secret-gate{z-index:100}
+.gate-countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:26px 0 10px}
+.gate-countdown div{padding:14px 5px;background:#101321;border:1px solid #d9b98533}
+.gate-countdown strong{display:block;font:500 clamp(22px,5vw,34px) "Playfair Display",serif;color:#f3d6d1}
+.gate-countdown span{display:block;margin-top:5px;font-size:8px;letter-spacing:.16em;color:#aaa9b8}
+.secret-gate.unlocked{opacity:0;visibility:hidden;pointer-events:none}
+.site-shell.journey-mode section.journey-stage{display:none}
+.site-shell.journey-mode section.journey-stage.active{display:block;animation:rise .75s both}
+.site-shell.journey-mode .topbar{display:flex}
+.journey-next{display:block;margin:35px auto 0;min-width:190px}
+.gift-box{position:relative;display:block;width:170px;height:145px;margin:58px auto 35px;border:0;background:transparent;cursor:pointer;transition:transform .4s}
+.gift-box:hover{transform:translateY(-6px)}
+.gift-box:before{content:"";position:absolute;bottom:0;left:12px;width:146px;height:100px;border-radius:4px;background:linear-gradient(135deg,#d6a1a8,#a96f83);box-shadow:0 18px 35px #0005}
+.gift-lid{position:absolute;z-index:3;left:3px;top:28px;width:164px;height:28px;border-radius:4px;background:linear-gradient(135deg,#edc6b7,#c58b91);transition:transform .7s;transform-origin:left bottom}
+.gift-ribbon-v{position:absolute;z-index:4;left:78px;top:28px;width:16px;height:117px;background:#e9d0a5}
+.gift-ribbon-h{position:absolute;z-index:4;left:12px;bottom:38px;width:146px;height:13px;background:#e9d0a5}
+.gift-bow{position:absolute;z-index:5;left:65px;top:0;width:40px;height:35px;border:7px solid #e9d0a5;border-radius:50% 50% 8px 50%;transform:rotate(20deg);color:transparent}
+.gift-box.open .gift-lid{transform:translate(-20px,-43px) rotate(-18deg)}
+.gift-message{max-width:520px;margin:25px auto 0;padding:25px;border:1px solid var(--line);background:#1b2031;color:#e8d5cb;font:italic 18px/1.8 "Playfair Display",serif;animation:rise .7s both}
+@media(max-width:600px){.gate-card{padding:35px 18px}.gate-countdown{gap:5px}.gate-countdown div{padding:12px 2px}.journey-next{margin-top:28px}}
